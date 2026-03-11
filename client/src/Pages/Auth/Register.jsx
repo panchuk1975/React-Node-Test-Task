@@ -59,7 +59,7 @@ const Signup = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (validateForm()) { return; }
+    if (!validateForm()) { return; }
 
     dispatch(register(userData, navigate))
       .then(() => {
