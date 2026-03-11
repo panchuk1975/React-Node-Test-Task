@@ -15,11 +15,11 @@ The frontend is a React application primarily using **Vite** for bundling.
 
 ## 3. Current Architecture Constraints
 - **Global Constants (`constant.js`)**: Currently handles URLs manually instead of utilizing the `VITE_API_URL` environment variables.
-- **Form Handling**: Validation occurs manually via custom React states (`userData`, `inputError`) without centralized form libraries (like React Hook Form/Formik/Zod), relying heavily on custom `validateForm` logic.
-- **Styling**: Mixes traditional Tailwind classes, MUI components (`Input`, `FormControl`), and inline styling.
+- **Form Handling**: Validation has been migrated from generic alerts to **field-level inline validation**. Components like `CreateEmployee.jsx` and `CreateClient.jsx` now use localized state-based error reporting.
+- **Styling**: Mixes traditional Tailwind classes, MUI components (`Input`, `FormControl`), and custom design tokens (e.g. `sky-400` for time-related elements).
+- **Navigation**: Sidebar is now controllable via a persistent toggle in the Navbar, improving UX for desktop and tablet users.
 
-## 4. Required Modifications (Tasks Context)
-As per the tasks identified in `README.md`:
-1. **Header component needs structural updating** to fetch and display the local time zone (`client/src/Components/Header` probably).
-2. **Employee Form** needs validation logic adjustments to display field-level validation text under the inputs rather than firing toasts/alerts.
-3. **Clients Management**: Introducing a Client action layout involving new modals and edit features, requiring creating/modifying components in the views.
+## 4. Completed Tasks
+1. **Header component updated**: Timezone display (`Intl.DateTimeFormat().resolvedOptions().timeZone`) integrated into all Navbars/Headers.
+2. **Employee Form**: Migrated to inline state-based error references beneath inputs.
+3. **Clients Management**: Full CRUD support implemented with dedicated Create/Edit modals and Topbar integration.

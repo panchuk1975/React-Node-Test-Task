@@ -138,15 +138,16 @@ const Navbar = ({ setShowSidebar, showSidebar, open, setOpen }) => {
           <div className={`flex justify-start gap-[10px] items-center`}>
             <IconButton
               onClick={() => setShowSidebar((pre) => !pre)}
-              className={`md:hidden flex cursor-pointer hover:text-sky-400 ${pathname.includes(
-                "/settings" ? "hidden" : ""
-              )}`}>
+              className={`flex cursor-pointer hover:text-sky-400 text-sky-400 ${pathname.includes("/settings") ? "hidden" : ""}`}>
               <PiList className="text-[25px]" />
             </IconButton>
-            <div>
-              <p className="text-sky-400 text-xl gap-1 flex items-center">
+            <div className="flex flex-col items-start justify-center">
+              <p className="text-sky-400 text-xl gap-1 flex items-center mb-0 leading-none">
                 <PiTimerLight className="text-[25px]" /> {date.toLocaleTimeString()}
               </p>
+              <span className="text-sky-400 text-[10px] tracking-wider uppercase pl-[28px] mt-1">
+                {Intl.DateTimeFormat().resolvedOptions().timeZone}
+              </span>
             </div>
           </div>
 

@@ -272,9 +272,14 @@ const Header = () => {
             <Menu />
           </IconButton>
 
-          <Typography className="text-red-400" variant="h6">
-            <TimerOutlined className="mb-1" /> {date.toLocaleTimeString()}
-          </Typography>
+          <div className="flex flex-col items-start justify-center ml-2">
+            <Typography className="text-sky-400 flex items-center gap-1 leading-none" variant="h6">
+              <TimerOutlined className="mb-0" /> {date.toLocaleTimeString()}
+            </Typography>
+            <span className="text-sky-400 text-[10px] tracking-wider uppercase pl-[28px] mt-1">
+              {Intl.DateTimeFormat().resolvedOptions().timeZone}
+            </span>
+          </div>
 
           <Tooltip title="Timer" arrow placement="bottom">
             <IconButton className="hover:text-red-400" aria-label="menu">
